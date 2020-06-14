@@ -1,6 +1,7 @@
 package com.example.test.controller;
 
 import com.example.test.model.AccountLogin;
+import com.example.test.model.request.RegisterRequest;
 import com.example.test.model.response.DefaultResponse;
 import com.example.test.service.AccountService;
 import io.swagger.annotations.Api;
@@ -26,12 +27,24 @@ public class AccountController {
 	AccountService accountService;
 
 	@GetMapping("/check_username")
-	public DefaultResponse checkUsername(@RequestParam(value = "username",required = false) String username){
+	public DefaultResponse checkUsername(@RequestParam(value = "username", required = false) String username) {
 		return accountService.findAccountInfoByUsername(username);
 	}
 
+	@GetMapping("/check_phone")
+	public DefaultResponse checkPhone(@RequestParam(value = "phone", required = false) String phone) {
+		return accountService.findAccountLoginByPhone(phone);
+	}
+
+	@PostMapping("/register")
+	public DefaultResponse Register(@RequestBody RegisterRequest registerRequest) {
+
+		return accountService.Register(registerRequest);
+	}
+
+
 	@GetMapping("/login")
-	public String checkUsername(){
+	public String checkUsername() {
 		return "aaaa";
 	}
 }

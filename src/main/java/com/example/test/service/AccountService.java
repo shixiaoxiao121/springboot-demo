@@ -2,6 +2,7 @@ package com.example.test.service;
 
 import com.example.test.model.AccountInfo;
 import com.example.test.model.AccountLogin;
+import com.example.test.model.request.RegisterRequest;
 import com.example.test.model.response.DefaultResponse;
 
 public interface AccountService {
@@ -14,4 +15,5 @@ public interface AccountService {
 
 	DefaultResponse findAccountLoginByPhone(String phone);
 
+	DefaultResponse Register(RegisterRequest registerRequest);
 }

@@ -4,8 +4,11 @@ spring:
     username: root
     password: 5201314yby
     driver-class-name: com.mysql.cj.jdbc.Driver
+
 mybatis:
   mapper-locations: classpath:myMapper/*.xml
 
 logging:
   config: classpath:log4j2.xml
+server:
+  port: 9000
